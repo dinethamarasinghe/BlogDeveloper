@@ -1,0 +1,51 @@
+﻿@model EnzoBlogDeveloper.EndSystem.AureDocumnetStorage.Models.BlogPostTag
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BlogPostTag</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaggedUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaggedUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaggedDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaggedDateTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogPostTagId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

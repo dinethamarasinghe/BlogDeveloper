@@ -1,0 +1,102 @@
+﻿@model EnzoBlogDeveloper.EndSystem.AureDocumnetStorage.Models.BlogPost
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Blog Post</h4>
+
+    <div class="btn-group" role="group" aria-label="...">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.BlogId }, new { @class = "btn btn-success" })
+        @Html.ActionLink("Delete", "Delete", new { id = Model.BlogId }, new { @class = "btn btn-danger" })
+    </div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Heading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Heading)
+        </dd>
+        </br>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tags)
+        </dt>
+
+        <dd>
+            <div class="btn-group" role="group">
+                @foreach (var tag in Model.Tags)
+                {
+                    <button type="button" class="btn btn-default">@tag.Tag</button>
+                }
+            </div>
+        </dd>
+        </br>
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdatedUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdatedUser)
+        </dd>
+
+    </dl>
+
+    <hr />
+    <p>
+        @Html.ActionLink("Add Comment", "Create", "BlogPostComment", new { id = Model.BlogId }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Add Tag", "Create", "BlogPostTag", new { id = Model.BlogId }, new { @class = "btn btn-primary" })
+    </p>
+
+    @foreach (var item in Model.Comments)
+    {
+        <div class="row">
+            <div class="col-sm-1">
+                <div class="thumbnail">
+                    <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <strong>@item.CommentedUser</strong> <span class="text-muted">@item.CommentedDateTime</span>
+                    </div>
+                    <div class="panel-body">
+                        @item.Comment
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

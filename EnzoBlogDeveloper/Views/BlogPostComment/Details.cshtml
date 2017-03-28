@@ -1,0 +1,51 @@
+﻿@model EnzoBlogDeveloper.EndSystem.AureDocumnetStorage.Models.BlogPostComment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BlogPostComment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentedUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommentedUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentedDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommentedDateTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogPostCommentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<EnzoBlogDeveloper.EndSystem.AureDocumnetStorage.Models.BlogPostComment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommentedUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommentedDateTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommentedUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommentedDateTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BlogPostCommentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BlogPostCommentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BlogPostCommentId })
+        </td>
+    </tr>
+}
+
+</table>

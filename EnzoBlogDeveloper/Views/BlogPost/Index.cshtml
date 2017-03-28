@@ -1,0 +1,31 @@
+﻿@model IEnumerable<EnzoBlogDeveloper.EndSystem.AureDocumnetStorage.Models.BlogPost>
+
+
+
+@{
+    ViewBag.Title = "Blog Developer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>OFF ROAD</h1>
+    <p class="lead">DON'T FOLLOW ME, YOU WON"T MAKE IT</p>
+    <p>@Html.ActionLink("Create Post", "Create", "BlogPost", null, new { @class = "btn btn-primary btn-lg" })</p>
+</div>
+
+<div class="card-group">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <h3 class="card-header">@item.Heading</h3>
+            <div class="card-block">
+                <p class="card-text">@item.Content.Substring(0, Math.Min(item.Content.Length, 100))</p>
+                <p class="card-text"><small class="text-muted">Created On @item.CreatedDateTime</small></p>
+                <p class="card-text"><small class="text-muted">Last updated By @item.LastUpdatedUser</small></p>
+            </div>
+            <div class="card-block">
+                @Html.ActionLink("Read More...", "Details", new { id = item.BlogId }, new { @class = "card-link" }) 
+            </div>
+        </div>
+    }
+</div>
